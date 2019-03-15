@@ -1,6 +1,8 @@
 import Foundation
 
-let pizzaInInches: Int = 10
+let pizzaInInches: Int = 16
+var numberOfPeople: Int = 12
+let slicesPerPerson: Int = 4
 
 var numberOfSlices: Int {
     get {
@@ -11,8 +13,21 @@ var numberOfSlices: Int {
     }
 }
 
-print(numberOfSlices)
+var numberOfPizza: Int {
+    get {
+        let numberOfPeopleFedPerPizza = numberOfSlices / slicesPerPerson
+        return numberOfPeople / numberOfPeopleFedPerPizza
+    }
+    set {
+        let totalSlices = numberOfSlices * newValue
+        numberOfPeople = totalSlices / slicesPerPerson
+    }
+}
 
-numberOfSlices = 15
+print(numberOfPizza)
+
+numberOfPizza = 8
+
+print(numberOfPeople)
 
 
